@@ -30,7 +30,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 
 # === ID АДМИНА ===
-ADMIN_ID = 1492635601294590115  # ЗАМЕНИ НА СВОЙ ID
+ADMIN_ID = 916315142168379392  # ЗАМЕНИ НА СВОЙ ID
 
 
 # === ДАННЫЕ ИГРОКОВ ===

@@ -1,5 +1,6 @@
 from flask import Flask
 from threading import Thread
+import os
 
 app = Flask(__name__)
 
@@ -7,10 +8,13 @@ app = Flask(__name__)
 def home():
     return "⚔️ Бот работает 24/7!"
 
-def run():
-    app.run(host='0.0.0.0', port=10000)
+def run_flask():
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host='0.0.0.0', port=port)
 
-Thread(target=run, daemon=True).start()
+# ЗАПУСКАЕМ FLASK ДО ВСЕГО ОСТАЛЬНОГО
+flask_thread = Thread(target=run_flask, daemon=True)
+flask_thread.start()
 
 import discord
 from discord.ext import commands
